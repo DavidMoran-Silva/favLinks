@@ -1,5 +1,5 @@
 import React from 'react';
-// import Table from './Table';
+import Table from './Table';
 import Form from './Form';
 
 class LinkContainer extends React.Component {
@@ -31,12 +31,13 @@ class LinkContainer extends React.Component {
     }
 
     render() {
+        const favLinks = this.state.favLinks;
 
         return (
             <div className="container">
                 <h1>My Favorite Links</h1>
                 <p>Add a new url with a name and link to the table.</p>
-                {/*TODO - Add Table Component */}
+                <Table linkData={favLinks} removeLink={this.removeCharacter} />
                 
                 <br/>
 
