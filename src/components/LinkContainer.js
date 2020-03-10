@@ -3,21 +3,31 @@ import React from 'react';
 // import Form from './Form';
 
 class LinkContainer extends React.Component {
+    // state = { favLinks: [] }
     constructor(props){
         super(props)
-        /* TODO - Create state object for storing favLinks */
+
+        this.state = {
+            favLinks: []
+        }
     }
 
     removeCharacter = index => {
         /*
-            TODO - Create logic for setting the state to filter array and remove favLink at index
-        */
+            Filters through favLinks to see if value at index i is index
+         */
+        this.setState((state) => ({
+            favLinks: state.favLinks.filter((value, i) => i !== index)
+        }));
     }
 
     handleSubmit = favLink => {
         /*
-            TODO - Create logic to setState and add new favLink to favLinks array in state
+            Adds new favLink to the beginning of the array
         */
+       this.setState((state) => ({
+           favLinks: [favLink, ...state.favLinks]
+       }));
     }
 
     render() {
