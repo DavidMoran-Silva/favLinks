@@ -1,4 +1,5 @@
 import React from 'react';
+import { render } from '@testing-library/react';
 
 const TableHeader = () => { 
     // boilerplate table header functional component
@@ -30,14 +31,16 @@ const TableBody = props => {
 }
 
 const Table = (props) => {
-   const { linkData, removeLink } = props;
-
-    return (
+    const { linkData, removeLink } = props;
+    {/*TODO - return <table> component, TableHeader and TableBody  */}
+    return(
         <table>
-            <TableHeader/>
-            <TableBody linkData={linkData} removeLink={removeLink} />
+            <TableHeader />
+            <TableBody linkData={linkData} removeLink={removeLink}/>
         </table>
     )
 }
 
 export default Table;
+   //https://blog.revathskumar.com/2018/05/reactjs-simple-performance-tip-for-list-or-table.html
+    

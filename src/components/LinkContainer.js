@@ -3,49 +3,54 @@ import Table from './Table';
 import Form from './Form';
 
 class LinkContainer extends React.Component {
-    // state = { favLinks: [] }
     constructor(props){
         super(props)
-
-        this.state = {
-            favLinks: []
+        this.state={
+        /* TODO - Create state object for storing favLinks */
+        favLinks: []
         }
     }
 
     removeCharacter = index => {
         /*
-            Filters through favLinks to see if value at index i is index
-         */
-        this.setState((state) => ({
-            favLinks: state.favLinks.filter((value, i) => i !== index)
-        }));
+            TODO - Create logic for setting the state to filter array and remove favLink at index
+        */
+
+       this.setState(({favLinks})=>({
+        favLinks: favLinks.filter((_, i) => i !== index)
+        
+    })) 
+   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
     }
 
     handleSubmit = favLink => {
         /*
-            Adds new favLink to the beginning of the array
+            TODO - Create logic to setState and add new favLink to favLinks array in state
         */
+       console.log("test")
        this.setState((state) => ({
-           favLinks: [favLink, ...state.favLinks]
-       }));
+           favLinks: state.favLinks.concat([favLink])
+       }))
     }
 
     render() {
-        const favLinks = this.state.favLinks;
 
         return (
             <div className="container">
                 <h1>My Favorite Links</h1>
                 <p>Add a new url with a name and link to the table.</p>
-                <Table linkData={favLinks} removeLink={this.removeCharacter} />
-                
+                {/*TODO - Add Table Component */}
+                    <Table linkData={this.state.favLinks} removeLink={this.removeCharacter}/>
                 <br/>
 
                 <h3>Add New</h3>
-                <Form handleSubmit={this.handleSubmit}/>
+                {/*TODO - Add Form Component */}
+                    <Form handleSubmit={this.handleSubmit}/>
             </div>
         );
     }
 }
 
 export default LinkContainer;
+//https://stackoverflow.com/questions/52885715/how-to-pass-a-function-prop-to-be-used-within-react-tables-columns
+//prop is what you pass from a parent to a child
